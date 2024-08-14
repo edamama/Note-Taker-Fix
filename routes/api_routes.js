@@ -28,3 +28,19 @@ router.post("/api/notes",(req,res)=> {
     res.json(jsonDb)
 
 });
+
+
+router.delete("api/notes/:id", (req,res)=>{
+
+    let dataVal = fs.readFileSync("db/db.json, utf8");
+    const jsonData = JSON.parse(dataVal);
+    const NEW_NOTES = dataJSON.filter((note)=> {
+
+        return note.id !== req.params.id;
+    });
+    fs.writeFileSync("db/db.json", JSON.stringify(NEW_NOTES));
+    res.json("Your note has been removed");
+
+});
+
+module.exports = router;
