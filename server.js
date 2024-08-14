@@ -12,6 +12,7 @@ app.use(express.urlencoded({extended : false}));
 app.use(express.json());
 app.use(express.static("public"));
 app.use(html);
+app.use(api_routes);
 
 
 app.listen(PORT, ()=> {
